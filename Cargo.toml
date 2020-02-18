@@ -1,8 +1,17 @@
 [package]
 name = "libwmata"
+description = "Get WMATA arrival times"
 version = "0.1.0"
 authors = ["Joe Borg <joe@josephb.org>"]
 edition = "2018"
+license = "Apache-2.0"
+homepage = "https://josephb.org"
+repository = "https://github.com/joedborg/libwmata"
+readme = "README.md"
+
+[lib]
+name = "libwmata"
+path = "src/lib.rs"
 
 [dependencies]
 phf = { version = "0.8.0", features = ["macros"] }
