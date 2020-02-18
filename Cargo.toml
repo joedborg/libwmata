@@ -1,0 +1,11 @@
+[package]
+name = "libwmata"
+version = "0.1.0"
+authors = ["Joe Borg <joe@josephb.org>"]
+edition = "2018"
+
+[dependencies]
+phf = { version = "0.8.0", features = ["macros"] }
+reqwest = "0.9.24"
+serde = "1.0.104"
+serde_json = "1.0.48"
