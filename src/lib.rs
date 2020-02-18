@@ -1,6 +1,20 @@
 use phf::phf_map;
 use serde::Deserialize;
 
+pub struct Line {
+    pub name: &'static str,
+    pub color: &'static str,
+}
+
+pub static LINES: phf::Map<&'static str, Line> = phf_map! {
+    "BL" => Line { name: "Blue", color: "#0079C4" },
+    "GR" => Line { name: "Green", color: "#10AE4E" },
+    "OR" => Line { name: "Orange", color: "#FF9027" },
+    "RD" => Line { name: "Red", color: "#FA2C2E" },
+    "SV" => Line { name: "Silver", color: "#9AA7A3" },
+    "YL" => Line { name: "Yellow", color: "#FFCE36" }
+};
+
 pub static STATIONS: phf::Map<&'static str, &'static str> = phf_map! {
     "G03" => "Addison Road-Seat Pleasant",
     "F06" => "Anacostia",
@@ -107,13 +121,13 @@ pub struct Train {
     #[serde(rename = "Line")]
     pub line: String,
     #[serde(rename = "Destination")]
-    pub destination: String
+    pub destination: String,
 }
 
 #[derive(Deserialize)]
 pub struct Trains {
     #[serde(rename = "TRAINS")]
-    pub trains: Vec<Train>
+    pub trains: Vec<Train>,
 }
 
 pub fn get_next_trains(station: &str) -> Result<Vec<Train>, reqwest::Error> {
